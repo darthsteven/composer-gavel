@@ -125,7 +125,7 @@ class ComposerVersionRequirement implements PluginInterface, EventSubscriberInte
     $lockFile = "json" === pathinfo($file, PATHINFO_EXTENSION)
       ? substr($file, 0, -4).'lock'
       : $file . '.lock';
-    $locker = new Locker($this->io, new JsonFile($lockFile, null, $this->io), $this->composer->getRepositoryManager(), $this->composer->getInstallationManager(), $contents);
+    $locker = new Locker($this->io, new JsonFile($lockFile, null, $this->io), $this->composer->getInstallationManager(), $contents);
     $this->composer->setLocker($locker);
 
     $this->io->writeError(sprintf('<info>Composer requirement set to %s.</info>', $constraint));
